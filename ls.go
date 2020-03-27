@@ -6,12 +6,17 @@ import (
 	"io/ioutil"
 //	"bufio"
 	"flag"
+	"log"
 )
 
 
 func main(){
+
 	//コマンドライン引数を使用
 	flag.Parse()
+	if flag.NArg() == 0{
+		log.Fatal("引数入力してー！！")
+	}
 	args := flag.Args()
 	text := args[0]
 	fmt.Println("パス:",text)
@@ -39,7 +44,7 @@ func main(){
 
 	files, err := ioutil.ReadDir(text)
 	if err != nil{
-		fmt.Println(err)
+		log.Fatal(err)
 	}
 
 	for _,file := range files{
@@ -47,5 +52,4 @@ func main(){
 	}
 
 	
-
 }
