@@ -16,6 +16,7 @@ func main(){
 
 	fmt.Println("パス:",text)
 
+//ディレクトリの名前を表示
 /*	dir, err := os.Open(text)
 	if err != nil{
 		fmt.Println(err)
