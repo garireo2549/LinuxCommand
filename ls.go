@@ -2,22 +2,31 @@ package main
 
 import (
 	"fmt"
-	"os"
+//	"os"
 	"io/ioutil"
-	"bufio"
+//	"bufio"
+	"flag"
 )
 
 
 func main(){
+	//コマンドライン引数を使用
+	flag.Parse()
+	args := flag.Args()
+	text := args[0]
+	fmt.Println("パス:",text)
 
+	//標準入力
+	/*
 	stdin := bufio.NewScanner(os.Stdin)
 	stdin.Scan()
 	text := stdin.Text()
 
 	fmt.Println("パス:",text)
+	*/
 
-//ディレクトリの名前を表示
-/*	dir, err := os.Open(text)
+	//ディレクトリの名前を表示
+	/*	dir, err := os.Open(text)
 	if err != nil{
 		fmt.Println(err)
 		return
@@ -26,7 +35,7 @@ func main(){
 	defer dir.Close()
 
 	fmt.Println(dir.Name())
-*/
+	*/
 
 	files, err := ioutil.ReadDir(text)
 	if err != nil{
