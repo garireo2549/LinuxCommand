@@ -1,12 +1,12 @@
 package main
 
 import (
-	"os"
 	"flag"
 	"log"
+	"os"
 )
 
-func main(){
+func main() {
 
 	flag.Parse()
 	if flag.NArg() == 0 {
@@ -15,7 +15,7 @@ func main(){
 	args := flag.Args()
 	url := args[0]
 
-	if err := os.Remove(url); err != nil{
+	if err := os.Remove(url); err != nil {
 		log.Fatal(err)
 	}
 }
