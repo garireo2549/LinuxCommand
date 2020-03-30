@@ -1,12 +1,13 @@
 package main
 
 import (
-	//	"os"
 	"flag"
 	"log"
 	"fmt"
 	"io/ioutil"
 )
+
+
 
 func main(){
 	flag.Parse()
@@ -14,27 +15,18 @@ func main(){
 		log.Fatal("引数エラー")
 	}
 	args := flag.Args()
-/*
-	const bufsize = 1024
 
-	files,err := os.Open("C:/gwork/LinuxMv/test.txt")
-	if err != nil{
-		log.Fatal(err)
-	}
-	defer files.Close()
-
-	text := make([]byte,bufsize)
-	for {
-		n,err := files.Read(text)
-		if n == 0{
-			break
-		}
+	/*
+	if args[1] == ">"{	//上書きの設定
+		files,err := ioutil.ReadFile(args[0])
 		if err != nil{
 			log.Fatal(err)
 		}
-		fmt.Println(string(text[:n]))
+		ioutil.WriteFile(args[2],files,0777)
+		
 	}
-*/
+	*/
+	
 	for _,path := range args{
 		files,err := ioutil.ReadFile(path)
 		if err != nil{

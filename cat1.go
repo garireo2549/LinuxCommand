@@ -26,7 +26,7 @@ func main() {
 	text := make([]byte, bufsize)
 	for {
 		n, err := files.Read(text)
-		if n == 0 {
+		if n == 0 { //内容が何もない時のループ脱出
 			break
 		}
 		if err != nil {
