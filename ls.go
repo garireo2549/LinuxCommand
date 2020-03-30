@@ -2,54 +2,52 @@ package main
 
 import (
 	"fmt"
-//	"os"
+	//	"os"
 	"io/ioutil"
-//	"bufio"
+	//	"bufio"
 	"flag"
 	"log"
 )
 
-
-func main(){
+func main() {
 
 	//コマンドライン引数を使用
 	flag.Parse()
-	if flag.NArg() == 0{
+	if flag.NArg() == 0 {
 		log.Fatal("引数入力してー！！")
 	}
 	args := flag.Args()
 	text := args[0]
-	fmt.Println("パス:",text)
+	fmt.Println("パス:", text)
 
 	//標準入力
 	/*
-	stdin := bufio.NewScanner(os.Stdin)
-	stdin.Scan()
-	text := stdin.Text()
+		stdin := bufio.NewScanner(os.Stdin)
+		stdin.Scan()
+		text := stdin.Text()
 
-	fmt.Println("パス:",text)
+		fmt.Println("パス:",text)
 	*/
 
 	//ディレクトリの名前を表示
 	/*	dir, err := os.Open(text)
-	if err != nil{
-		fmt.Println(err)
-		return
-	}
+		if err != nil{
+			fmt.Println(err)
+			return
+		}
 
-	defer dir.Close()
+		defer dir.Close()
 
-	fmt.Println(dir.Name())
+		fmt.Println(dir.Name())
 	*/
 
 	files, err := ioutil.ReadDir(text)
-	if err != nil{
+	if err != nil {
 		log.Fatal(err)
 	}
 
-	for _,file := range files{
+	for _, file := range files {
 		fmt.Println(file.Name())
 	}
 
-	
 }
